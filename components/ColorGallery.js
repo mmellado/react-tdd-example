@@ -3,11 +3,16 @@ import React, { Component } from 'react';
 export default class ColorGallery extends React.Component {
   state = {
     active: this.props.colors[0],
+    onColorSelect: null,
   }
 
   updateActiveColor = (color) => {
     this.setState({
       active: color,
+    }, () => {
+      if (this.props.onColorSelect) {
+        this.props.onColorSelect(color);
+      }
     })
   }
 
