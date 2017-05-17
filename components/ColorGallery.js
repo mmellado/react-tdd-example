@@ -6,10 +6,9 @@ export default class ColorGallery extends React.Component {
       <div className="cg">
         <div className="cg-active-content" />
         <ul>
-          <li className="cg-option" />
-          <li className="cg-option" />
-          <li className="cg-option" />
-          <li className="cg-option" />
+          {
+            this.props.colors.map(color => <li className="cg-option" key={color} style={{background: color}} />)
+          }
         </ul>
       </div>
     );
