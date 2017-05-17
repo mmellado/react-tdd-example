@@ -22,6 +22,14 @@ describe('<ColorGallery />', () => {
     );
     expect(wrapper.find('.cg-active-content')).to.have.style('background', 'blue');
   });
+
+  it('should use the state to handle the active color', () => {
+    const wrapper = shallow(
+      <ColorGallery colors={['blue', 'green', 'red', 'yellow']} />
+    );
+
+    expect(wrapper.state('active')).to.eql('blue');
+  });
 });
 
 
