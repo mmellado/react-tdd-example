@@ -30,6 +30,16 @@ describe('<ColorGallery />', () => {
 
     expect(wrapper.state('active')).to.eql('blue');
   });
+
+  it('should change the color of the big box when clicking any color tile', () => {
+    const wrapper = shallow(
+      <ColorGallery colors={['blue', 'green', 'red', 'yellow']} />
+    );
+
+    expect(wrapper.state('active')).to.eql('blue');
+    wrapper.find('ul').childAt(1).simulate('click');
+    expect(wrapper.state('active')).to.eql('green');
+  });
 });
 
 
