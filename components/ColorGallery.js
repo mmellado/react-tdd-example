@@ -5,6 +5,12 @@ export default class ColorGallery extends React.Component {
     return (
       <div className="cg">
         <div className="cg-active-content" />
+        <ul>
+          <li className="cg-option" />
+          <li className="cg-option" />
+          <li className="cg-option" />
+          <li className="cg-option" />
+        </ul>
       </div>
     );
   }
