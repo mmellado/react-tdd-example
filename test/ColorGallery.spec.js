@@ -40,6 +40,18 @@ describe('<ColorGallery />', () => {
     wrapper.find('ul').childAt(1).simulate('click');
     expect(wrapper.state('active')).to.eql('green');
   });
+
+  it('should set a white border on the active color tile', () => {
+    const wrapper = shallow(
+      <ColorGallery colors={['blue', 'green', 'red', 'yellow']} />
+    );
+
+    expect(wrapper.find('ul').childAt(0)).to.have.style('border', '3px solid white');
+    expect(wrapper.find('ul').childAt(1)).not.to.have.style('border', '3px solid white');
+    wrapper.find('ul').childAt(1).simulate('click');
+    expect(wrapper.find('ul').childAt(1)).to.have.style('border', '3px solid white');
+    expect(wrapper.find('ul').childAt(0)).not.to.have.style('border', '3px solid white');
+  });
 });
 
 
