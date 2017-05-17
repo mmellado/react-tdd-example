@@ -52,6 +52,16 @@ describe('<ColorGallery />', () => {
     expect(wrapper.find('ul').childAt(1)).to.have.style('border', '3px solid white');
     expect(wrapper.find('ul').childAt(0)).not.to.have.style('border', '3px solid white');
   });
+
+  it('should trigger the onChange callback', () => {
+    const onChangeFunc = spy();
+    const wrapper = shallow(
+      <ColorGallery colors={['blue', 'green', 'red', 'yellow']} onColorSelect={onChangeFunc} />
+    );
+
+    wrapper.find('ul').childAt(1).simulate('click');
+    expect(onChangeFunc).to.have.property('callCount', 1);
+  });
 });
 
 
