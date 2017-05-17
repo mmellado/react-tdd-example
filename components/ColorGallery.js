@@ -12,6 +12,8 @@ export default class ColorGallery extends React.Component {
   }
 
   render() {
+    const { active } = this.state;
+
     return (
       <div className="cg">
         <div className="cg-active-content" style={{background: this.state.active}} />
@@ -21,7 +23,10 @@ export default class ColorGallery extends React.Component {
               <li
                 className="cg-option"
                 key={color}
-                style={{ background: color }}
+                style={{
+                  background: color,
+                  border: active === color ? '3px solid white' : null,
+                }}
                 onClick={() => this.updateActiveColor(color)}
               />))
           }
