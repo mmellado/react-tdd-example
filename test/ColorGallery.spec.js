@@ -15,6 +15,13 @@ describe('<ColorGallery />', () => {
     );
     expect(wrapper.find('li.cg-option')).to.have.length(4);
   });
+
+  it('should set the first color as the color for the big square', () => {
+    const wrapper = render(
+      <ColorGallery colors={['blue', 'green', 'red', 'yellow']} />
+    );
+    expect(wrapper.find('.cg-active-content')).to.have.style('background', 'blue');
+  });
 });
 
 
